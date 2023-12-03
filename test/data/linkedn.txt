@@ -1,0 +1,89 @@
+My name is Victor Viktorovic and this file represents a textform of my Linkedin account
+
+Headline: Web Developer | React & Typescript
+
+Contact Information:
+- Location: Timely City, Fictionia
+- Website: website.dev
+- Email: developer@example.com
+
+Summary:
+Greetings! 👋🏼👨‍💻 I'm a Web Developer with expertise in React & Typescript, PHP, SQL, and GIT. Currently working as a Lead Developer at InnovateTech, where I'm responsible for building and taking care of a Digital Marketing SaaS. My passion lies in creating impactful solutions that contribute to society.
+
+Work Experience:
+- Lead Developer
+  - InnovateTech - Timely City, Fictionia
+  - August 2022 - Present (1 year)
+  - Assumed feature ownership and collaborated with the product team on innovation
+  - Mentored and led developers by delegating tasks and hosting workshops
+  - Skills: Team Leadership, Coaching, Code Review, Presentation Skills, D3.js, Project Management
+
+- Full Stack Developer
+  - InnovateTech - Timely City, Fictionia
+  - September 2020 - August 2022 (2 years)
+  - Doubled customer onboarding conversion rate by revamping UX and automating data collection
+  - Reduced GMB connection process from 24h to INSTANT by rethinking Google OAuth integration
+  - Contributed to the company's adoption of React & Typescript by implementing a POC
+  - Skills: React.js, TypeScript, PHP, Redux.js, Unit Testing, SASS, Git, MySQL
+
+- Full Stack Developer
+  - Visionary Solutions - Creativeburg, Fictionia
+  - January 2019 - February 2020 (1 year 2 months)
+  - Constructed a stock management solution for a factory
+  - Designed a database schema to optimize stock tracking
+  - Developed a mobile app for entering the data using QR codes
+  - Developed a web app to analyze data and generate reports
+  - Skills: PHP, Laravel, jQuery, JavaScript, Bootstrap, SQL, Ionic Framework
+
+- Back End Developer
+  - Digital Systems Inc. - Techville, Oldova
+  - October 2015 - September 2016 (1 year)
+  - Built the back end for a banking industry web app
+  - Developed unit tests to ensure performance and reliability
+  - Created technical documentation to facilitate maintenance
+  - Collaborated with the front-end team to deliver optimal UX
+  - Skills: JCL, z/OS, IBM Db2, COBOL
+
+Education:
+- Master's degree, Graphic Design
+  - West University of Timely City - Timely City, Fictionia
+  - 2019 - 2021
+  - Skills: Visual Arts, Web Design, Graphic Design, Adobe Photoshop, Adobe Illustrator
+
+- Bachelor's degree, Computer Science
+  - University of Creativeburg - Creativeburg, Fictionia
+  - 2016 - 2019
+  - Skills: Object-Oriented Programming (OOP), Computer Science, Web Technologies, Software Development
+
+- Erasmus+ Student Exchange, Computer Science
+  - University of Life Sciences Zague - Zague, Ech Republic
+  - 2017 - 2018
+  - Skills: Business English, Responsive Web Design
+
+Volunteering:
+- Graphic Designer
+  - CSSCF, Techville, Oldova
+  - September 2014 - February 2015 (6 months)
+  - 5000 students learned about First Aid importance from leaflets and posters I designed
+  - 210 students learned the skills for performing First Aid from a training course I illustrated
+
+Skills:
+- React.js (Endorsed by 3 colleagues at InnovateTech)
+- TypeScript (Endorsed by 2 colleagues at InnovateTech)
+- PHP (Endorsed by 4 colleagues at InnovateTech)
+
+Recommendations:
+- John Doe, MSc, Team Leader, InnovateTech (March 8, 2023)
+  - "Victor was a very passionate developer in my team when I joined InnovateTech. He was the first developer to start working on the React.JS migration and soon enough he became a leader over other passionate React developers, leading his team towards excellence. His impressive skills and motivation really make him stand out. Working with Victor was a great pleasure both because of his impressive development knowledge and his leadership skills. I am happy to have been able to coach him and see him evolve as a fine leader as he is today. I strongly recommend Victor to anyone who wants to have a fun, communicative, motivated, extremely skilled developer, and amazing leader in their team!"
+
+Languages:
+- English (Full professional proficiency)
+- Romanian (Native or bilingual proficiency)
+- Russian (Full professional proficiency)
+- Ukrainian (Full professional proficiency)
+
+Interests:
+- Science and Technology
+- Arts and Culture
+- Health
+- Environment
