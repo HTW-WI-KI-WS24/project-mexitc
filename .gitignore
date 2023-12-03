@@ -1,2 +1,3 @@
 .env
 *.pdf
+node_modules
