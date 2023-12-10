@@ -1,4 +1,4 @@
-My name is Victor Viktorovic and this file represents a textform of my Linkedin account
+this file represents a textform of my Linkedin account
 
 Headline: Web Developer | React & Typescript
 
