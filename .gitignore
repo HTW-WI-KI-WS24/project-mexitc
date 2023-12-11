@@ -1,4 +1,5 @@
 .env
 *.pdf
 /node_modules
+/app/data-gym-cache
 constants
