@@ -10,3 +10,10 @@
 2. Login to that account using your browser
 3. Open your browser's Dev Tools to find the cookie with the name li_at. Use that value for sessionCookieValue when setting up the scraper.
 4. Install: npm install linkedin-profile-scraper
+
+# Virtual Environment Setup
+
+$ python3 -m virtualenv venv  
+$ source venv/bin/activate
+$ (my_venv)$ python3 -m pip install -r ./requirements.txt  
+$ (my_venv)$ deactivate # When you want to leave virtual environment
