@@ -13,15 +13,7 @@ import os
 async def on_chat_start():
     TWIN.setup()
     model = ChatOpenAI(streaming=True, openai_api_key=os.getenv('OPENAI_API_KEY'))
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            (
-                "system",
-                "You're a very knowledgeable historian who provides accurate and eloquent answers to historical questions.",
-            ),
-            ("human", "{question}"),
-        ]
-    )
+    prompt = TWIN.createStudentPrompt("Ruy Guzman")
     runnable = prompt | model | StrOutputParser()
     cl.user_session.set("runnable", runnable)
 

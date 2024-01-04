@@ -2,7 +2,7 @@
 from langchain.document_loaders import TextLoader
 
 # Prompt
-from langchain.prompts import PromptTemplate
+from langchain.prompts import ChatPromptTemplate
 
 # Vector database
 from langchain.vectorstores import Pinecone
@@ -34,7 +34,16 @@ def createStudentPrompt(name):
     loader = TextLoader(file_path=path)
     data = loader.load()[0].page_content
     
-    return data.replace("<name>",name)
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            (
+                "system",
+                data.replace("<name>",name),
+            ),
+            ("human", "{question}"),
+        ]
+    )
+    return prompt
 
 def initVectorDatabase():
     # initialize pinecone
