@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-token = os.getenv('GITHUB_ACCESS_TOKEN')
+token = os.getenv('GIT_TOKEN')
 username = 'Ruy-GC'
 repos_url = f'https://api.github.com/users/{username}/repos'
 headers = {'Authorization': f'token {token}'}
