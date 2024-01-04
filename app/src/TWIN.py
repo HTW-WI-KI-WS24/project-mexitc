@@ -23,8 +23,10 @@ from langchain.tools import Tool
 # Environment
 from dotenv import load_dotenv, dotenv_values
 import os
-os.environ.clear()
-load_dotenv()
+
+def setup():
+    os.environ.clear()
+    load_dotenv()
     
 def createStudentPrompt(name):
     my_path = os.path.abspath(os.path.dirname(__file__))

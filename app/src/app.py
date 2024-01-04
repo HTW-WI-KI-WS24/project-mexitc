@@ -1,26 +1,41 @@
+from langchain.chat_models import ChatOpenAI
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema import StrOutputParser
+from langchain.schema.runnable import Runnable
+from langchain.schema.runnable.config import RunnableConfig
+
 import chainlit as cl
 import TWIN
-
-@cl.step
-def tool():
-    return "Response from the tool!"
+import os
 
 
-@cl.on_message  # this function will be called every time a user inputs a message in the UI
-async def main(message: cl.Message):
-    """
-    This function is called every time a user inputs a message in the UI.
-    It sends back an intermediate response from the tool, followed by the final answer.
+@cl.on_chat_start
+async def on_chat_start():
+    TWIN.setup()
+    model = ChatOpenAI(streaming=True, openai_api_key=os.getenv('OPENAI_API_KEY'))
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            (
+                "system",
+                "You're a very knowledgeable historian who provides accurate and eloquent answers to historical questions.",
+            ),
+            ("human", "{question}"),
+        ]
+    )
+    runnable = prompt | model | StrOutputParser()
+    cl.user_session.set("runnable", runnable)
 
-    Args:
-        message: The user's message.
 
-    Returns:
-        None.
-    """
+@cl.on_message
+async def on_message(message: cl.Message):
+    runnable = cl.user_session.get("runnable")  # type: Runnable
 
-    # Call the tool
-    tool()
+    msg = cl.Message(content="")
 
-    # Send the final answer.
-    await cl.Message(content="This is the final answer").send()
+    async for chunk in runnable.astream(
+        {"question": message.content},
+        config=RunnableConfig(callbacks=[cl.LangchainCallbackHandler()]),
+    ):
+        await msg.stream_token(chunk)
+
+    await msg.send()
