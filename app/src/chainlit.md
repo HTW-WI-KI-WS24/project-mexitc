@@ -1,14 +1,15 @@
-# Welcome to Chainlit! 🚀🤖
+# Welcome to My Digital Twin! 🚀🤖
+<div id="header" style="display: flex; align-items: center;">
+  <img src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-File.png" width="150"/>
+  <p style = "margin-left:10px;">Hi there Recruiter, nice to meet you. Feel free to ask any questions about my background whether it's my educational journey, professional experiences, technical know-how, or even my soft skills. I'm an open book, ready to provide you with all the details you need to get a comprehensive understanding of what I bring to the table. Ask away!</p>
+</div>
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
 
-## Useful Links 🔗
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
+## Contact me! 🔗
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)
+![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
 
-## Welcome screen
-
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+## Visit my profile on github
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)

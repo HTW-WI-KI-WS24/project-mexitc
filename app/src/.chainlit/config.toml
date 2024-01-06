@@ -19,7 +19,7 @@ cache = false
 prompt_playground = true
 
 # Authorize users to upload files with messages
-multi_modal = true
+multi_modal = false
 
 # Allows user to use speech to text
 [features.speech_to_text]
@@ -29,7 +29,7 @@ multi_modal = true
 
 [UI]
 # Name of the app and chatbot.
-name = "Chatbot"
+name = "Digital Twin"
 
 # Show the readme while the conversation is empty.
 show_readme_as_default = true
