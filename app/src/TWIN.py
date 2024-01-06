@@ -34,7 +34,7 @@ def createStudentPrompt(name):
     loader = TextLoader(file_path=path)
     data = loader.load()[0].page_content
     
-    prompt = ChatPromptTemplate.from_messages(
+    """prompt = ChatPromptTemplate.from_messages(
         [
             (
                 "system",
@@ -42,8 +42,10 @@ def createStudentPrompt(name):
             ),
             ("human", "{question}"),
         ]
-    )
-    return prompt
+    )"""
+    
+    return data.replace("<name>",name)
+
 
 def initVectorDatabase():
     # initialize pinecone
@@ -70,9 +72,8 @@ def createVectorStore():
     
     return vectorstore
 
-def createQAagent(vectorstore, studentPrompt):
+def createQAagent(vectorstore,studentPrompt):
     # completion llm
-    print(os.getenv('OPENAI_API_KEY'))
     llm = ChatOpenAI(
         openai_api_key=os.getenv('OPENAI_API_KEY'),
         model_name='gpt-3.5-turbo',
