@@ -8,22 +8,20 @@ async def on_chat_start():
     name = "Ruy Guzman"
     pinecone = TWIN.createVectorStore()
     prompt = TWIN.createStudentPrompt(name)
-
-    cl.user_session.set("vectorstore", pinecone)
-    cl.user_session.set("studentprompt", prompt)
+    student = TWIN.createQAagent(
+        vectorstore=pinecone, 
+        studentPrompt= prompt
+    )
+    cl.user_session.set("student", student)
+    
     await cl.Message(
         content=f"Welcome to {name}'s Digital Twin. How can I assist you today?"
     ).send()
 
 @cl.on_message
 async def on_message(message: cl.Message):
-    pinecone = cl.user_session.get("vectorstore")
-    prompt = cl.user_session.get("studentprompt")
     
-    student = TWIN.createQAagent(
-        vectorstore=pinecone, 
-        studentPrompt= prompt
-        )
+    student = cl.user_session.get("student")    
     
     res = student.run(message.content)
 
