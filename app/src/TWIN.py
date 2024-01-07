@@ -38,7 +38,7 @@ def createStudentPrompt(name):
 
 
 def initVectorDatabase():
-    # initialize pinecone
+
     pinecone.init(
         api_key= os.getenv('PINECONE_API_KEY'),  # find at app.pinecone.io
         environment= os.getenv('PINECONE_ENVIRONMENT')   # next to api key in console
