@@ -1,5 +1,6 @@
 .env
 *.pdf
 /node_modules
-/app/data-gym-cache
+*data-gym-cache
+/app/src/__pycache__
 constants
