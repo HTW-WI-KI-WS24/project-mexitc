@@ -13,7 +13,7 @@
 
 # Virtual Environment Setup
 
-$ python3 -m virtualenv venv  
-$ source venv/bin/activate
-$ (my_venv)$ python3 -m pip install -r ./requirements.txt  
-$ (my_venv)$ deactivate # When you want to leave virtual environment
+$ python3 -m venv digital-twin 
+$ source digital-twin/bin/activate
+$ python3 -m pip install -r requirements.txt  
+$ deactivate # When you want to leave virtual environment

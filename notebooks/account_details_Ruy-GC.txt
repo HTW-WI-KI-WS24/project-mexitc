@@ -34,7 +34,7 @@
     "private_gists": 0,
     "total_private_repos": 6,
     "owned_private_repos": 6,
-    "disk_usage": 3148036,
+    "disk_usage": 3148041,
     "collaborators": 6,
     "two_factor_authentication": true,
     "plan": {
