@@ -34,16 +34,6 @@ def createStudentPrompt(name):
     loader = TextLoader(file_path=path)
     data = loader.load()[0].page_content
     
-    """prompt = ChatPromptTemplate.from_messages(
-        [
-            (
-                "system",
-                data.replace("<name>",name),
-            ),
-            ("human", "{question}"),
-        ]
-    )"""
-    
     return data.replace("<name>",name)
 
 
@@ -73,17 +63,17 @@ def createVectorStore():
     return vectorstore
 
 def createQAagent(vectorstore,studentPrompt):
-    # completion llm
+
     llm = ChatOpenAI(
         openai_api_key=os.getenv('OPENAI_API_KEY'),
         model_name='gpt-3.5-turbo',
-        temperature=1
+        temperature=0
     )
 
     conversational_memory = ConversationBufferWindowMemory(
         memory_key="chat_history", return_messages=True
     )
-
+    
     qa = RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",

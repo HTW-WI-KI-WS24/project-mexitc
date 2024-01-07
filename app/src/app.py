@@ -5,13 +5,16 @@ import TWIN
 async def on_chat_start():
     TWIN.setup()
     TWIN.initVectorDatabase()
+    
     name = "Ruy Guzman"
     pinecone = TWIN.createVectorStore()
     prompt = TWIN.createStudentPrompt(name)
+
     student = TWIN.createQAagent(
         vectorstore=pinecone, 
         studentPrompt= prompt
     )
+    
     cl.user_session.set("student", student)
     
     await cl.Message(
@@ -22,6 +25,8 @@ async def on_chat_start():
 async def on_message(message: cl.Message):
     
     student = cl.user_session.get("student")    
+    
+    print(message.content)
     
     res = student.run(message.content)
 
