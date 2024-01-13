@@ -1,2 +1,12 @@
 requests
 python-dotenv
+jq
+chainlit
+pinecone-client
+pinecone-datasets
+pypdf
+tiktoken
+python-dotenv
+langchain
+langchain-community
+openai==0.28
