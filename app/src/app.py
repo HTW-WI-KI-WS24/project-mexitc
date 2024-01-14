@@ -1,5 +1,6 @@
 import chainlit as cl
 import TWIN
+import SBAGENT
 
 @cl.on_chat_start
 async def on_chat_start():
@@ -26,8 +27,10 @@ async def on_message(message: cl.Message):
     
     student = cl.user_session.get("student")    
     
-    print(message.content)
-    
+    initial_question = SBAGENT.chain.invoke({"question":message.content})
+    print(initial_question)
+    print(student.run(initial_question))
+
     res = student.run(message.content)
 
     await cl.Message(content=res).send()

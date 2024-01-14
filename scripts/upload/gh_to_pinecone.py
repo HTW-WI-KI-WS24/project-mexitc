@@ -27,27 +27,34 @@ vectorstore = Pinecone(
     ""
 )
 
-file_path = "scripts/account_details_Ruy-GC.txt"
+file_path = "scripts/github/account_details_Ruy-GC.txt"
 f = open(file_path)
 data = json.load(f)
+#data = json.dumps(data)
 
 docs = []
 texts = []
 metadatas = []
 ids = [str(uuid.uuid4()) for _ in data]
 embeded = embeddings.embed_documents(data)
+fields_list = []
 
-for i, (text, embedding) in enumerate(zip(data.items(), embeded)):
 
-    texts.append(f'{text[0]}:{text[1]}')
-    metadatas.append({"text":f'{text[0]}:{text[1]}'})
+fields_list.append(str({
+    "gh_login": data['login'],
+    "id": data['id'],
+    "location": data['location'],
+    "email": data['email'],
+    "public_repos": data['public_repos'],
+    "linkedin": data['blog'],
+}))
+
+print(". ".join(fields_list))
+
+metadatas.append({"text":". ".join(fields_list)})
     
-
-try:
-    vectorstore.add_texts(ids=ids,metadatas=metadatas,texts=texts)
-    print("Data successfully uploaded to db")
-except:
-    print("Fail")
+vectorstore.add_texts(ids=[str(uuid.uuid4())],metadatas=metadatas,texts=". ".join(fields_list),)
+print("Data successfully uploaded to db")
 
 
 
