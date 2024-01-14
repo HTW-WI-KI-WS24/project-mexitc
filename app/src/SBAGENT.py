@@ -1,3 +1,12 @@
+"""
+Notes for the profesor:
+
+This module is an implementation for a step-back prompting chain.
+Its original purpose was to simpliy prompts and beeing able to achieve a greater precision  within the responses.
+
+The outcome wasn't as expected so we decided to go for a simpler approach within the app.py file.
+"""
+
 from langchain.schema.runnable import RunnableLambda
 from langchain.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
 from langchain import hub
