@@ -1,0 +1,51 @@
+import os
+import json
+import requests
+from difflib import unified_diff
+
+def fetch_commit_diff_contents(github_repo, commit_sha):
+    url = f'https://api.github.com/repos/{github_repo}/commits/{commit_sha}'
+    headers = {'Accept': 'application/vnd.github.v3+json'}
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        files = response.json().get('files', [])
+        additions = []
+        for file in files:
+            if 'patch' in file:
+                additions.append(file['patch'])
+        return additions
+    else:
+        print(f"Error fetching diff contents from GitHub API. Status Code: {response.status_code}")
+        return []
+
+def fetch_commits_from_github(github_repo, git_user, output_file):
+    url = f'https://api.github.com/repos/{github_repo}/commits'
+    params = {'author': git_user}
+    headers = {'Accept': 'application/vnd.github.v3+json'}
+
+    response = requests.get(url, params=params, headers=headers)
+
+    if response.status_code == 200:
+        commits_data = []
+        for commit in response.json():
+            commit_data = {
+                'author': commit['commit']['author']['name'],
+                'date': commit['commit']['author']['date'],
+                'message': commit['commit']['message'],
+                'additions': fetch_commit_diff_contents(github_repo, commit['sha']),
+            }
+            commits_data.append(commit_data)
+
+        with open(output_file, 'w') as json_file:
+            json.dump(commits_data, json_file, indent=2)
+    else:
+        print(f"Error fetching data from GitHub API. Status Code: {response.status_code}")
+
+if __name__ == "__main__":
+    # Replace these variables with your GitHub repository, git user, and output file
+    github_repo = 'Ruy-GC/Geriatrik'
+    git_user = 'Ruy-GC'
+    output_json_file = 'git_log_export.json'
+
+    fetch_commits_from_github(github_repo, git_user, output_json_file)
