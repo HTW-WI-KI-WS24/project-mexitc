@@ -1,0 +1,21 @@
+1. Hardcoding: In the first commit, the title of the React application is hardcoded as "GERIATRIK". This can lead to multiple issues in the future if the name of the application changes. It would be better to store the title in a configuration file or an environment variable.
+
+2. Commented Code: In the first commit, there is a commented piece of code in the `onSubmit` function. Commented code makes the codebase messy and less readable. If the code is not needed, it should be removed.
+
+3. Unhandled Errors: In the first commit, there are several places where errors are not handled properly. For instance, in the `onSubmit` function, there is an if condition checking whether the email and password are empty strings, but there is no code inside the if block. This can lead to unhandled exceptions.
+
+4. No Input Validation: In the second commit, the user's password is updated without any validation. This is a security risk as users can enter weak or predictable passwords. 
+
+5. Inconsistent Naming Conventions: There are several inconsistencies in naming conventions. For example, in the second commit, there is a mix of using both 'class' and 'className'. This can cause confusion and makes the code less readable.
+
+6. Directly Manipulating State: In the second commit, the state is directly manipulated with statements like `setData(res.data.message);`. This is not a recommended practice in React, as it does not guarantee that the state will be immediately updated. 
+
+7. No Error Handling for API Requests: In the second commit, there are several API requests that do not have error handling. This can lead to the application crashing or behaving unexpectedly when the API request fails.
+
+8. Excessive Use of Inline Styles: Throughout the commits, there is excessive use of inline styles. This can make the code harder to maintain and read, as well as potentially leading to inconsistencies in the application's look and feel. 
+
+9. Use of Magic Numbers: In the third commit, there are a few magic numbers, such as `left: 85%;` and `top: 10px;`. These should be replaced with named constants to improve readability and maintainability.
+
+10. Inefficient Use of React Router: The use of `navigate` function could have been replaced with `Link` component for more efficient navigation.
+
+Overall, while these commits show progress in developing the application, there are several areas of improvement in terms of code quality, readability, and maintainability.

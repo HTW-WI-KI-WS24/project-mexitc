@@ -30,15 +30,11 @@ vectorstore = Pinecone(
 file_path = "scripts/github/account_details_Ruy-GC.txt"
 f = open(file_path)
 data = json.load(f)
-#data = json.dumps(data)
 
-docs = []
 texts = []
 metadatas = []
 ids = [str(uuid.uuid4()) for _ in data]
-embeded = embeddings.embed_documents(data)
 fields_list = []
-
 
 fields_list.append(str({
     "gh_login": data['login'],
