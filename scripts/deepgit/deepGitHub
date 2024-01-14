@@ -2,6 +2,13 @@ import os
 import json
 import requests
 from difflib import unified_diff
+from dotenv import load_dotenv
+
+# Load environment variables from the .env file
+load_dotenv()
+
+# Access the GIT_TOKEN environment variable
+access_token = os.getenv('GIT_TOKEN')
 
 def fetch_commit_diff_contents(github_repo, commit_sha):
     url = f'https://api.github.com/repos/{github_repo}/commits/{commit_sha}'
@@ -44,7 +51,7 @@ def fetch_commits_from_github(github_repo, git_user, output_file):
 
 if __name__ == "__main__":
     # Replace these variables with your GitHub repository, git user, and output file
-    github_repo = 'Ruy-GC/Geriatrik'
+    github_repo = 'CarloLj/Geriatrik'
     git_user = 'Ruy-GC'
     output_json_file = 'git_log_export.json'
 
