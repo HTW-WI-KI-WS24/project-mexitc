@@ -1,5 +1,11 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/cVeImKGm)
 
+# Authors:
+- Ruy Guzmán Camacho 
+- Fernanda de León
+- Karla Mondragón
+
+# Digital-Twin
 
 # Test instructions
 1. pip3 install langchain openai chromadb pymupdf tiktoken
@@ -13,7 +19,7 @@
 
 # Virtual Environment Setup
 
-$ python3 -m venv digital-twin 
-$ source digital-twin/bin/activate
-$ python3 -m pip install -r requirements.txt  
-$ deactivate # When you want to leave virtual environment
+python3 -m venv digital-twin  </br>
+source digital-twin/bin/activate </br>
+python3 -m pip install -r requirements.txt </br>
+deactivate # When you want to leave virtual environment 
