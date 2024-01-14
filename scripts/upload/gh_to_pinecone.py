@@ -27,15 +27,23 @@ vectorstore = Pinecone(
     ""
 )
 
-file_path = "scripts/github/account_details_Ruy-GC.txt"
-f = open(file_path)
+f = open("scripts/github/account_details_Ruy-GC.txt","r")
 data = json.load(f)
+
+f = open("scripts\deepgit\codeReview\strong.txt", "r")
+data2 = f.read()
+
+f = open("scripts\deepgit\codeReview\weak.txt", "r")
+data3 = f.read()
+
 
 texts = []
 metadatas = []
-ids = [str(uuid.uuid4()) for _ in data]
+ids = []
 fields_list = []
 
+#######################################################################   
+ 
 fields_list.append(str({
     "gh_login": data['login'],
     "id": data['id'],
@@ -45,12 +53,23 @@ fields_list.append(str({
     "linkedin": data['blog'],
 }))
 
-print(". ".join(fields_list))
-
+texts.append(". ".join(fields_list))
+ids.append(str(uuid.uuid4()))
 metadatas.append({"text":". ".join(fields_list)})
-    
-vectorstore.add_texts(ids=[str(uuid.uuid4())],metadatas=metadatas,texts=". ".join(fields_list),)
+
+texts.append(data2)
+ids.append(str(uuid.uuid4()))
+metadatas.append({"text":data2})
+
+texts.append(data3)
+ids.append(str(uuid.uuid4()))
+metadatas.append({"text":data3})
+
+#######################################################################    
+#Pinecone.from_texts([t for t in texts], embeddings, index_name=index)
+vectorstore.add_texts(ids=ids,metadatas=metadatas,texts=texts)
 print("Data successfully uploaded to db")
 
+#######################################################################
 
 

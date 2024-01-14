@@ -35,6 +35,6 @@ async def on_message(message: cl.Message):
     
     sb_question = llm.invoke(f"Simplify this question for step back prompting: {message.content}")
     
-    res = student.run(sb_question)
+    res = student.run(sb_question.content)
 
     await cl.Message(content=res).send()
