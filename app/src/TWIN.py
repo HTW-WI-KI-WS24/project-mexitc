@@ -1,9 +1,6 @@
 # Load datas
 from langchain.document_loaders import TextLoader
 
-# Prompt
-from langchain.prompts import ChatPromptTemplate
-
 # Vector database
 from langchain.vectorstores import Pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
@@ -13,7 +10,6 @@ import pinecone
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
-from langchain.schema import SystemMessage
 
 #agents
 from langchain.agents.types import AgentType
@@ -21,7 +17,7 @@ from langchain.agents import initialize_agent
 from langchain.tools import Tool
 
 # Environment
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 import os
 
 def setup():
@@ -66,7 +62,7 @@ def createQAagent(vectorstore,studentPrompt):
 
     llm = ChatOpenAI(
         openai_api_key=os.getenv('OPENAI_API_KEY'),
-        model_name='gpt-3.5-turbo',
+        model_name='gpt-4',
         temperature=0
     )
 
