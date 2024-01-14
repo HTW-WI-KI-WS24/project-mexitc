@@ -1,18 +1,16 @@
 import os
 import json
 import requests
-from difflib import unified_diff
 from dotenv import load_dotenv
+import random
 
-# Load environment variables from the .env file
 load_dotenv()
 
-# Access the GIT_TOKEN environment variable
 access_token = os.getenv('GIT_TOKEN')
 
 def fetch_commit_diff_contents(github_repo, commit_sha):
     url = f'https://api.github.com/repos/{github_repo}/commits/{commit_sha}'
-    headers = {'Accept': 'application/vnd.github.v3+json'}
+    headers = {'Accept': 'application/vnd.github.v3+json', 'Authorization': f'token {access_token}'}
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
@@ -26,16 +24,21 @@ def fetch_commit_diff_contents(github_repo, commit_sha):
         print(f"Error fetching diff contents from GitHub API. Status Code: {response.status_code}")
         return []
 
-def fetch_commits_from_github(github_repo, git_user, output_file):
+def fetch_commits_from_github(github_repo, git_user, output_file, limit=10):
     url = f'https://api.github.com/repos/{github_repo}/commits'
     params = {'author': git_user}
-    headers = {'Accept': 'application/vnd.github.v3+json'}
+    headers = {'Accept': 'application/vnd.github.v3+json', 'Authorization': f'token {access_token}'}
 
     response = requests.get(url, params=params, headers=headers)
 
     if response.status_code == 200:
         commits_data = []
-        for commit in response.json():
+        commits = response.json()
+        
+        # Limit the number of commits to 10 randomly selected ones
+        selected_commits = random.sample(commits, min(limit, len(commits)))
+
+        for commit in selected_commits:
             commit_data = {
                 'author': commit['commit']['author']['name'],
                 'date': commit['commit']['author']['date'],
@@ -43,8 +46,10 @@ def fetch_commits_from_github(github_repo, git_user, output_file):
                 'additions': fetch_commit_diff_contents(github_repo, commit['sha']),
             }
             commits_data.append(commit_data)
+            
+        output_path = os.path.join('scripts', 'deepgit', output_file)
 
-        with open(output_file, 'w') as json_file:
+        with open(output_path, 'w') as json_file:
             json.dump(commits_data, json_file, indent=2)
     else:
         print(f"Error fetching data from GitHub API. Status Code: {response.status_code}")
@@ -55,4 +60,4 @@ if __name__ == "__main__":
     git_user = 'Ruy-GC'
     output_json_file = 'git_log_export.json'
 
-    fetch_commits_from_github(github_repo, git_user, output_json_file)
+    fetch_commits_from_github(github_repo, git_user, output_json_file, limit=10)
