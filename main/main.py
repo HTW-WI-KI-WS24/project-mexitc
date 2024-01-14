@@ -2,12 +2,11 @@ import os
 import sys
 from dotenv import load_dotenv
 
-load_dotenv()
-
-# Import modules we need from the langchain package
 from langchain.document_loaders import DirectoryLoader
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.chat_models import ChatOpenAI
+
+load_dotenv()
 
 # Set the API key as an environment variable
 openai_api_key = os.getenv('OPENAI_API_KEY')
