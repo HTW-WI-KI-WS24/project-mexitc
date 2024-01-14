@@ -1,5 +1,8 @@
 import chainlit as cl
 import TWIN
+import SBAGENT
+
+from langchain.chat_models import ChatOpenAI
 
 @cl.on_chat_start
 async def on_chat_start():
@@ -25,9 +28,13 @@ async def on_chat_start():
 async def on_message(message: cl.Message):
     
     student = cl.user_session.get("student")    
+
+    llm = ChatOpenAI(
+        model_name='gpt-4',
+    )
     
-    print(message.content)
+    sb_question = llm.invoke(f"Simplify this question for step back prompting: {message.content}")
     
-    res = student.run(message.content)
+    res = student.run(sb_question)
 
     await cl.Message(content=res).send()
