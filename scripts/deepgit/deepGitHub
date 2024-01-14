@@ -4,8 +4,10 @@ import requests
 from dotenv import load_dotenv
 import random
 
+# Load environment variables from the .env file
 load_dotenv()
 
+# Access the GIT_TOKEN environment variable
 access_token = os.getenv('GIT_TOKEN')
 
 def fetch_commit_diff_contents(github_repo, commit_sha):
@@ -40,17 +42,17 @@ def fetch_commits_from_github(github_repo, git_user, output_file, limit=10):
 
         for commit in selected_commits:
             commit_data = {
-                'author': commit['commit']['author']['name'],
-                'date': commit['commit']['author']['date'],
                 'message': commit['commit']['message'],
                 'additions': fetch_commit_diff_contents(github_repo, commit['sha']),
             }
             commits_data.append(commit_data)
-            
-        output_path = os.path.join('scripts', 'deepgit', output_file)
+
+        output_path = 'scripts/deepgit/' + output_file
 
         with open(output_path, 'w') as json_file:
             json.dump(commits_data, json_file, indent=2)
+            
+        print(f"Data saved to: {output_path}")
     else:
         print(f"Error fetching data from GitHub API. Status Code: {response.status_code}")
 
