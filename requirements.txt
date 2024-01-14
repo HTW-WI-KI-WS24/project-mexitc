@@ -10,3 +10,4 @@ python-dotenv
 langchain
 langchain-community
 openai==0.28
+pypdf
