@@ -40,15 +40,19 @@ This projects relies on 3 main sections
 - `notebooks/pinecone.ipynb`: Practice with pinecone environment.
    
 3. Scripts: python scripts used to fetch & process data from APIs and further upload to pinecone
+
    3.1: Deepgit : Deep analysis to github stats
      - `scripts/deepgit/deepGitHub` : extracts github commits and code additions from a repository and a user
      - `scripts/deepgit/test.py`: filters extracted commits to OpenAi to identify code strengths and weaknesses
+   
      3.1.1: codeReview: txt with strengths and weaknesses
          - `scripts/deepgit/codeReview/strong.txt` : Strengths obtained from OpenAi Github anaylsis
          - `scripts/deepgit/codeReview/weak.txt`: Weaknesses obtained from OpenAi Github analysis
+
    3.2: Github
      - `scripts/github/account_details_Ruy-GC.txt`: github main rofile data
      - `scripts/github/github_account.py`: script to extract gitub main profile data
+   
    3.3: Upload
      - `scripts/upload/gh_to_pinecone.py` : save github main profile data into pincone
 
